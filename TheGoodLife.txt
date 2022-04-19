@@ -1,0 +1,60 @@
+The Good Life
+
+Each of five neighborhood dogs (Saber, Ginger, Nutmeg, Pepper, and Bear) is enjoying one of the following activities: getting its ears scratched, playing catch, taking a nap, burying a chew toy, and going for a walk.
+	•	Pepper is either playing catch or burying a chew toy.
+	•	Neither Ginger nor Saber nor Bear is on a walk.
+	•	One of the dogs named after a spice is getting its ears scratched.
+	•	A dog not named for a spice is playing catch.
+	•	Bear is getting some exercise.
+Can you figure out what each pooch is doing?
+
+	
+Ears scratched
+Playing catch
+Taking a nap
+Burying chew toy
+Going for a walk
+Saber
+0
+0
+1
+0
+0
+Ginger
+1
+0
+0
+0
+0
+Nutmeg
+0
+0
+0
+0
+1
+Pepper
+0
+0
+0
+1
+0
+Bear
+0
+1
+0
+0
+0
+
+Ginger >>> Ears scratched
+Bear >>> Playing catch
+Saber >>> Taking a nap
+Pepper >>> Burying chew toy
+Nutmeg >>> Going for a walk
+
+Solution
+	•	Pepper is either playing catch or burying a chew toy but since another rule is “a dog not named for a spice is playing catch”, he is therefore burying a chew toy.
+	•	There are 3 activities that constitute exercise- playing catch, burying chew toy and going for a walk. Since Bear is getting some exercise but is not on a walk or burying a chew toy, he is thus playing catch.
+	•	Since Ginger, Saber, Bear and Pepper are not on a walk, that leaves Nutmeg who is going for a walk.
+	•	Ginger is the only dog left named after a spice, so thus Ginger is getting its ears scratched.
+	•	That leaves Saber with the only option of taking a nap.
+
