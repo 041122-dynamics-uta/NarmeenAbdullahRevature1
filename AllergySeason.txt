@@ -1,0 +1,70 @@
+Puzzle No. 6, Allergy Season:
+Five friends (Allegra, Ben, Clara, Flora, and Zach) are each allergic to something different: pollen, shellfish, bee stings, cats, or nuts.
+	·	Allegra has a food allergy
+	·	Ben can play with his kitten for hours without issue (or medicine).
+	·	Clara’s allergy is not related to animals.
+	·	Flora has seasonal allergies.
+Can you figure out who is allergic to what?
+
+Solution:-
+Starting with Probabilities & Elimination:
+
+	
+Pollen
+Shellfish
+Bee Stings
+Cats
+Nuts
+Allegra
+0
+1
+0
+0
+0
+Ben
+0
+0
+1
+0
+0
+Clara
+0
+0
+0
+0
+1
+Flora
+1
+0
+0
+0
+0
+Zach
+0
+0
+0
+1
+0
+
+
+Allegra >>> Shellfish
+Ben >>> Bee Stings
+Calara >>> Nuts
+Flora >>> Pollen
+Zach >>> Cats
+
+
+
+
+
+	➢	Allegra has a food Allergy. This means we have two probabilities we should think of, which are Shellfish and Nuts. Filling the table with 1 for both then later we will Eliminate the other inappropriate probability
+	➢	Eliminating Cats for Ben, since he can play with them without issue. (Put 0 in the table)
+	➢	Eliminating Shellfish, Bee stings, and Cats for Clara
+	➢	Clara probabilities are Pollen and Nuts
+	➢	Since Flora has seasonal Allergies, this means its Pollen .. which let us know we’re left with Nuts for Clara.
+	➢	Eliminate Nuts Allergy for Allegra (Delete the zero we’ve put earlier), Allegra has Shellfish allergy.
+	➢	Now for Cats Allergy, we are left with Zach
+	➢	Ben is left with Bee Stings
+
+
+
