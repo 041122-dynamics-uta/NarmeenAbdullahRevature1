@@ -5,8 +5,9 @@
 
 #Constraints
 #-100</=X,Y</=100
+
 #Output Format
-#Four lines containing the sum (), difference (), product (), and quotient (), respectively.
+#Four lines containing the sum (X+Y), difference (X-Y), product (XxY), and quotient (X/Y), respectively.
 #(While computing the quotient, print only the integer part.)
 
 #Solution

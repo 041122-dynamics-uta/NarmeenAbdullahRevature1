@@ -11,7 +11,7 @@
 #Constraints
 #1</=X,Y,Z</=1000
 #Output Format
-
+#
 #One word: either "SCALENE" or "EQUILATERAL" or "ISOSCELES" (quotation marks excluded).
 
 
