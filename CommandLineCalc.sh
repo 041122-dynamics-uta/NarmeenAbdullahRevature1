@@ -1,13 +1,20 @@
 #!/bin/bash
 #Now Pseudocode
-#This program allow User to choose one of four different calculations
-#Then it asks user to enter two number to execute the chosen calculation
-#if choice=1 then print $(( num + num2 ))
-#if choice=2 print $(( num - num2 ))
-#if choice=3 print $(( num * num2 ))
-#if choice=4 print $(( num / num2 ))
-#Ask user if want to continue, if yes do again .. if no exit and done
-#use functions for calculation types Add(), Subtract (), Multiply(), Divide()
+#This is a Command Line Calculator using Bash
+#As Follows:
+#The user starts the bash script.
+#The script welcomes the user
+#The script presents the user with a menu that allows the user to choose between the options add, subtract, multiply, or divide.
+#After the user chooses a calculation type, they are prompted to enter the two integers. This can be one integer at a time.
+#After pressing enter, the result is presented to the user.
+#The user can choose to exit the program or choose to make another calculation.
+
+#Must allow the user to choose which calculation to make.
+#Must get both integers from the user.
+#Must create a different function for each calculation type and call each function to do that calculation.
+#The calculation functions cannot print the result to the screen as this violates the single-responsibility principle (We’ll learn about this later).
+#Print the result to the screen by calling a separate function called result.
+#After the result is printed to the screen, you must present the user with the option to make another calculation or quit the program.
 
 
 
