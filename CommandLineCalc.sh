@@ -12,7 +12,7 @@
 #Must allow the user to choose which calculation to make.
 #Must get both integers from the user.
 #Must create a different function for each calculation type and call each function to do that calculation.
-#The calculation functions cannot print the result to the screen as this violates the single-responsibility principle (We’ll learn about this later).
+#The calculation functions cannot print the result to the screen as this violates the single-responsibility principle
 #Print the result to the screen by calling a separate function called result.
 #After the result is printed to the screen, you must present the user with the option to make another calculation or quit the program.
 
@@ -63,7 +63,7 @@ Division () {
 }
 
 
-Result () {
+Result () {       #single-responsibility principle
 
         echo
         echo The Result Is: $expr
