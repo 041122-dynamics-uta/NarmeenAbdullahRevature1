@@ -6,11 +6,8 @@ namespace StringManipulationChallenge
     {
         static void Main(string[] args)
         {
-            /*
-            *
-            * implement the required code here and within the methods below.
-            *
-            */
+            string upperCase = Program.StringToUpper("It's The C # Excercise");
+            Console.WriteLine(upperCase);
         }
 
         /// <summary>
@@ -22,7 +19,11 @@ namespace StringManipulationChallenge
         /// <returns></returns>
         public static string StringToUpper(string usersString)
         {
-            throw new NotImplementedException("StringToUpper method not implemented.");
+            /// throw new NotImplementedException("StringToUpper method not implemented.");
+            
+            string output = usersString.ToUpper();
+            Console.WriteLine(usersString);
+            return usersString.ToUpper();
         }
 
         /// <summary>
@@ -34,7 +35,8 @@ namespace StringManipulationChallenge
         /// <returns></returns>       
         public static string StringToLower(string usersString)
         {
-            throw new NotImplementedException("StringToUpper method not implemented.");
+             throw new NotImplementedException("StringToUpper method not implemented.");
+           /// return usersString.ToLower();
         }
 
         /// <summary>
