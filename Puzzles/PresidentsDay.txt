@@ -1,0 +1,58 @@
+President’s Day
+
+George, William, John, Abe, and Millard have their birthdays on consecutive days, all between Monday and Friday.
+	•	George’s birthday is as many days before Millard’s and William’s is after Abe’s.
+	•	John is two days older than Abe.
+	•	Millard’s birthday is on Thursday.
+Can you figure out whose birthday is on each day?
+
+	
+Mon
+Tue
+Wed
+Thur
+Friday
+George
+0
+1
+0
+0
+0
+William
+0
+0
+0
+0
+1
+John
+1
+0
+0
+0
+0
+Abe
+0
+0
+1
+0
+0
+Millard
+0
+0
+0
+1
+0
+
+Monday >>> John
+Tuesday >>> George
+Wednesday >>> Abe
+Thursday >>> Millard
+Friday >>> William
+
+
+Solution
+	•	Millard’s birthday is on Thursday. Left with 4 days.
+	•	We know William’s birthday is after Abe’s and since John is 2 days older than Abe, we can assume that William, Abe and John all are separated by 2 days (since Thursday is taken by Millard). Test John on Monday, Abe on Wednesday and William on Friday.
+	•	Therefore, left with Tuesday which is George’s birthday because it is as many days before Millard’s as William’s is after Abe’s.
+
+
