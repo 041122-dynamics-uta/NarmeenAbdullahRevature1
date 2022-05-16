@@ -3,13 +3,22 @@ using System;
 namespace CosmoStarModel;
 public class Member
 {
- 
-    public int MemberIdId { get; set; } = -1;
-    public string? Fname { get; set; }
-    public string? lname { get; set; }
-    public int Age { get; set; } = 0;
-    public DateTime DateCreated { get; set; } = DateTime.Now;
-    public MemberClass? Family { get; set; }
-    public int FamilyId { get; set; }
+  public int CostumerId { get; set; }
+    public string Name { get; set; }
+    public string Phone { get; set; }
+    public string Address { get; set; }
+    public string Email { get; set; }
+    public List<Orders> _orders;
+    
+
+    public Member()
+    {
+        CostumerId = 0;
+        Name = ".Name";
+        Phone = ".Phone";
+        Address = ".Address";
+        Email = ".Email";
+        _orders = new List<Orders>();
+    }
 
 }
