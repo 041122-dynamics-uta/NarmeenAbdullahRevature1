@@ -13,7 +13,7 @@ public class MainMenu : nMenu
         Console.WriteLine("");
         Console.WriteLine("                   How Can We Help You Today?\n");
         Console.WriteLine("                    <1> Add Custumer");
-        Console.WriteLine("                    <2> Search for Custumer");
+        Console.WriteLine("                    <2> View Available Products");
         Console.WriteLine("                    <3> Store Locations");
         Console.WriteLine("                    <4> Place Order");
         Console.WriteLine("                    <5> View Order History");
@@ -28,12 +28,11 @@ public class MainMenu : nMenu
 
         switch (pickedChoice)
         {
-            case "0":
-                return "Exit";
+            
             case "1":
-                return "AddCostumer";
+                return "AddCustumer";
             case "2":
-                return "SearchCostumer";
+                return "View Available Products";
             case "3":
                 return "ViewStoreInventory";
             case "4":
@@ -42,6 +41,8 @@ public class MainMenu : nMenu
                 return "OrderHistory";
             case "6":
                 return "ReplenishInventory";
+            case "0":
+                return "Exit";
             default:
                 Console.WriteLine("You Have Entered An Invalid Choice");
                 Console.WriteLine("Press ENTER to try again");

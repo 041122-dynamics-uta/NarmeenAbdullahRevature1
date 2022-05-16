@@ -26,16 +26,49 @@ namespace CosmoStarApp
 
 
 
-            //write a Welcome string and make a loop for register/login
-
-            Console.WriteLine("Hello Valued Customer!");
-            Console.WriteLine("please Enter your Choice /n Enter 1 to Login /n Enter 2 to Register");
-            string choice = Console.ReadLine();
+            
 
             //start the program here!
             Console.WriteLine("Would you like to see a list of all the members?");
             string answer = Console.ReadLine();
 
+            bool Continue = false;
+            while (Continue == false){
+                
+                //write a Welcome string and make a loop for register/login
+
+                Console.WriteLine("Hello Valued Customer!");
+                Console.WriteLine("please Enter your Choice /n Enter 1 to Login /n Enter 2 to Register");
+                string choice = Console.ReadLine();
+
+                switch(answer){
+                case "1":
+                Console.WriteLine("Please Enter your Prefered User Name:");
+                String PuserName = Console.ReadLine();
+                Console.WriteLine("Please Enter Prefered Password:");
+                String Ppassword = Console.ReadLine();
+                Continue = true;
+                break;
+
+                case "2":
+                Console.WriteLine("Please Enter User Name:");
+                String userName = Console.ReadLine();
+                Console.WriteLine("Please Enter Password:");
+                String Password = Console.ReadLine();
+                Continue = true
+                break;
+
+                default:
+                
+                Console.WriteLine("Invalid Choice");
+                break;
+
+
+
+
+            }
+
+            }
 
             // choose a store loop
 
