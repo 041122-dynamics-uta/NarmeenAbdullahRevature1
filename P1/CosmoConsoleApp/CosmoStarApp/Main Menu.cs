@@ -17,7 +17,6 @@ public class MainMenu : nMenu
         Console.WriteLine("                    <3> Store Locations");
         Console.WriteLine("                    <4> Place Order");
         Console.WriteLine("                    <5> View Order History");
-        Console.WriteLine("                    <6> Replenish Inventory");
         Console.WriteLine("                    <0> Exit\n\n");
         Console.Write(" Enter the number of your choice ");
     }
@@ -34,13 +33,11 @@ public class MainMenu : nMenu
             case "2":
                 return "View Available Products";
             case "3":
-                return "ViewStoreInventory";
+                return "StoreLocations";
             case "4":
                 return "PlaceOrder";
             case "5":
                 return "OrderHistory";
-            case "6":
-                return "ReplenishInventory";
             case "0":
                 return "Exit";
             default:

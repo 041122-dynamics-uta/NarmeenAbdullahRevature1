@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 namespace CosmoStarRepo;
 
 
+
 public class CosmoRepoClass
 {
 
@@ -16,14 +17,27 @@ public class CosmoRepoClass
 
  public CosmoRepoClass()
     {
-        // this._repo = r;
+        
         this._mapper = new CosmoRepoMapper();
-    }
 
-    public List<Member> MembersList()
-    {
-        string myQuery1 = "SELECT * FROM _Members;";
-        //this using block creates teh SqlConnection.
+        public Member newMember(string cName, string cNumber, string cAddress, string cEmail ){
+
+            throw new NotImplementedException();
+
+    
+        string myQuery1 = $"IMSERT INTO Cosmo_Customers VALUES (@costumerId, @costumerName, @costumerPhone, @costumerAddress, @costumerEmail)";
+
+        //this using block creates the SqlConnection.
+        using (SqlConnection conn = new SqlConnection(_connectionString))
+        {
+            conn.Open();
+
+            SqlCommand command = new SqlCommand(sqlQuery, conn);
+
+            command.Parameters.AddWithValue("@costumerId", cName);
+            command.Parameters.AddWithValue("@costumerName", cNumber);
+            command.Parameters.AddWithValue("@costumerPhone", cAddress);
+            command.Parameters.AddWithValue("@costumerEmail", cEmail);
         // the SqlConnection is the object that communicates with the Db.
         using (SqlConnection query1 = new SqlConnection(connectionString))
         {
@@ -50,4 +64,5 @@ public class CosmoRepoClass
 
     }
 }
+    }
 

@@ -55,7 +55,8 @@ namespace CosmoStarApp
                 String userName = Console.ReadLine();
                 Console.WriteLine("Please Enter Password:");
                 String Password = Console.ReadLine();
-                Continue = true
+                Continue = true;
+                Member newMember = dc.newMember(cName, cNumber, cAddress, cEmail);
                 break;
 
                 default:

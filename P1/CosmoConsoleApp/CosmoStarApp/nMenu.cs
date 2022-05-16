@@ -4,6 +4,5 @@ public interface nMenu
 {
     void ShowMenu();
 
-    string UserPick();
-    //bool checkFilled();
+   string UserPick();
 }

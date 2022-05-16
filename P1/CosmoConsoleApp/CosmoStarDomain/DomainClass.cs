@@ -20,5 +20,10 @@ public CosmoRepoClass _repo { get; set; }
         return ml;
     }
 
+    public Member newMember(string cName, string cNumber, string cAddress, string cEmail ){
+
+        
+    }
+
 
 }
