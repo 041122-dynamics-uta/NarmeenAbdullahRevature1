@@ -4,20 +4,21 @@ namespace CosmoStarModel;
 public class Member
 {
   public int CostumerId { get; set; }
-    public string Name { get; set; }
-    public string Phone { get; set; }
-    public string Address { get; set; }
-    public string Email { get; set; }
+    public string cName { get; set; }
+    public string cPhone { get; set; }
+    public string cAddress { get; set; }
+    public string cEmail { get; set; }
     public List<Orders> _orders;
     
+    //Member m =0;
 
     public Member()
     {
         CostumerId = 0;
-        Name = ".Name";
-        Phone = ".Phone";
-        Address = ".Address";
-        Email = ".Email";
+        cName = "Name";
+        cPhone = "Phone";
+        cAddress = "Address";
+        cEmail = "Email";
         _orders = new List<Orders>();
     }
 

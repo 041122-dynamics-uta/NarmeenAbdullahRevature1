@@ -2,6 +2,7 @@
 using CosmoStarRepo;
 
 
+
 namespace CosmoStarDomain;
 public class DomainClass
 {

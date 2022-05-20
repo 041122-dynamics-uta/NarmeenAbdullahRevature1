@@ -10,11 +10,11 @@ namespace CosmoStarRepo
             Member m = new Member
             {
                 MemberIdId = (int)reader[0],
-                Fname = (string)reader[1],
-                lname = (string)reader[2],
-                Age = (byte)reader[3],
+                cName = (string)reader[1],
+                cAddress = (string)reader[2],
+                cPhone = (byte)reader[3],
                 DateCreated = (DateTime)reader[4],
-                FamilyId = (int)reader[5],
+                
 
             };
             

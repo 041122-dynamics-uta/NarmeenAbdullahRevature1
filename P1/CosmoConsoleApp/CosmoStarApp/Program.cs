@@ -7,9 +7,6 @@ using System.Data.SqlClient;
 using System.Data;
 
 
-
-
-
 namespace CosmoStarApp
 {
   class Program
@@ -24,8 +21,10 @@ namespace CosmoStarApp
             //in Domainclass there is constructor takes 1 argument (r)
             DomainClass dc = new DomainClass(crc);
 
-
-
+            string cName="";
+            string cNumber="";
+            string cAddress="";
+            string cEmail="";
             
 
             //start the program here!
@@ -107,11 +106,11 @@ namespace CosmoStarApp
             if (answer.CompareTo("yes") == 0)
             {
                 // create the member class
-                List<Member> members = fb.MembersList();
+                List<Member> members = dc.MembersList();
 
                 foreach (Member m in members)
                 {
-                    Console.WriteLine($"The members data is Fname-{m.Fname}.....");
+                    Console.WriteLine($"The members data is cName-{m.cName}.....");
                 }
 
             }
