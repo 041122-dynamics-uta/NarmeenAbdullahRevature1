@@ -4,56 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Big Sweet and Salty Game</title>
+    <title>Interactive SweetnSalty</title>
     <style>
 			body
 			{
-                background-color: burlywood;
+                
+				background-image: url("sweetSalty.JPG"); 
+				background-color: skyblue;
 				overflow: auto;
-                color:rgb(21, 7, 2)
+                color: navy
 			}
+			
 			button
 			{
-  			background-color: #4c8155; 
+  			background-color: navy;👍
   			border: dotted;
-  			color: rgb(115, 31, 98);
-  			padding: 20px 20px;
+  			color: rgb(34, 137, 197);
+  			padding: 5px 10px;
   			text-align: center;
   			text-decoration: none;
-  			display: inline-block;
+  			display: display-legacy;
   			font-size: 20px;
-				border-radius: 5px;				
+				border-radius: 2px;				
 			}
 
 			button:hover
 			{
-				cursor:crosshair;
-				box-shadow: 20px 10px 10px rgb(42, 9, 9);
+				cursor: cell;
 			}
 
 			.b-main-wrapper
 			{
-				margin: 0 auto; width: 50%;
+				margin: 0 auto; width: 100%;
+				text-align: center;
 			}
 
 			.b-info-header
 			{
-				text-align: left
+				text-align: center
 			}
 
 			.b-info
 			{
-                border-style:ridge
+                border-style: dashed
+				
 			}
 
 			.b-info__par
 			{
-				font-weight: 600
+				font-weight: 800
 			}
 
 			.b-form__error
 			{
-				color: red;
+				color: fuchsia;
 			}
 
 			.b-input-wrapper_display_none, .b-form_display_none, .b-result_display_none, .b-result-wrapper_display_none, .b-result-wrapper__par_display_none, .b-form__error_display_none
@@ -63,17 +67,18 @@
 
 			.b-input-wrapper
 			{
-                background-color: aqua;
+                background-color: whitesmoke;
+				
 			}
 
 			.b-form
 			{
-				overflow:auto
+				overflow:auto;
 			}
 
 			.b-form__button-submit
 			{
-                border: double;
+                border: dashed;
 			}
 
 			.b-form__label
@@ -112,7 +117,7 @@
 			
 			.b-form__result_bgd_green
 			{
-				background-color: rgb(196, 217, 37);
+				background-color: skyblue
 			}
 		</style>
   </head>
@@ -147,7 +152,7 @@
 
       <div class="b-input-wrapper ">	
 				<div class="b-form ">
-					<p>Begin</p>
+					<p>Game starts here</p>
           <button type="submit" class="b-form__button-submit" type="submit" value="Press to start" onClick="javascript:Submit();">Submit</button>
         </div>
 				<div class="b-form b-form_display_none">
