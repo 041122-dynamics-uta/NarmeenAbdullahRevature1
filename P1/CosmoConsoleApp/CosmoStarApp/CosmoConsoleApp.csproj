@@ -13,6 +13,9 @@
     <ProjectReference Include="..\CosmoStarDomain\CosmoStarDomain.csproj" />
     <ProjectReference Include="..\CosmoStarModel\CosmoStarModel.csproj" />
     <ProjectReference Include="..\CosmoStarRepo\CosmoStarRepo.csproj" />
+    
+    <!-- <ProjectReference Include="..\CosmoStarModel\CosmoStarModel.csproj" />
+    <ProjectReference Include="..\CosmoStarRepo\CosmoStarRepo.csproj" /> -->
   </ItemGroup>
 
   

@@ -1,68 +1,176 @@
 ﻿using CosmoStarModel;
 using System.Data.SqlClient;
+
+
 namespace CosmoStarRepo;
 
-
-
 public class CosmoRepoClass
-{
-
-    //mapper class { get; set; } to establish connection string with Azure
-    // Mapper provides way to take the result gotten from ADO map them transfer that data into a class in CosmoStarModel
-    
-    public CosmoRepoMapper _mapper { get; set; }
-    
-    string connectionString = "Server=tcp:narmeenserver.database.windows.net,1433;Initial Catalog=CosmoDB;Persist Security Info=False;User ID=narmeenServer;Password=pass;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-
- public CosmoRepoClass()
-    {
-        
-        this._mapper = new CosmoRepoMapper();
-
-        public Member newMember(string cName, string cNumber, string cAddress, string cEmail ){
-
-            throw new NotImplementedException();
-
-    
-        string myQuery1 = $"IMSERT INTO Cosmo_Customers VALUES (@costumerId, @costumerName, @costumerPhone, @costumerAddress, @costumerEmail)";
-
-        //this using block creates the SqlConnection.
-        using (SqlConnection conn = new SqlConnection(_connectionString))
+{//inject the mapper class
+        public CosmoRepoClass(CosmoRepoMapper _mapper) 
         {
-            conn.Open();
-
-            SqlCommand command = new SqlCommand(sqlQuery, conn);
-
-            command.Parameters.AddWithValue("@costumerId", cName);
-            command.Parameters.AddWithValue("@costumerName", cNumber);
-            command.Parameters.AddWithValue("@costumerPhone", cAddress);
-            command.Parameters.AddWithValue("@costumerEmail", cEmail);
-        // the SqlConnection is the object that communicates with the Db.
-        using (SqlConnection query1 = new SqlConnection(connectionString))
-        {
-            //The SqlCommand object uses the query text along with the SqlConnection object to open a connection and send the query.
-            SqlCommand command = new SqlCommand(myQuery1, query1);
-            command.Connection.Open();//open the connection to the Db
-            SqlDataReader results = command.ExecuteReader();//actually conduct the query.
-
-            //query the FamilyRepository Db for the list of members
-            //USE ADO.NET .........
-            //use the mapper to transfer the falues in to Member objects in a List<Member>.
-            List<Member> m1 = new List<Member>();
-            while (results.Read())
-            {
-                //map the current table row to member class objects
-                Member m = this._mapper.DboToMember(results);//send in the row of the reader to be mapped.
-                m1.add(m);     //send in the row of the reader to be mapped       
-            }
-
-            query1.Close();
-            return m1;
+            this._mapper = _mapper;
+               
         }
 
+    
+            public CosmoRepoMapper _mapper {get; set;}
+
+            //Ado.Net connection Command
+    string connectionstring = "Server=tcp:narmeenserver.database.windows.net,1433;Initial Catalog=CosmoDB;Persist Security Info=False;User ID=narmeenServer;Password=happyApr@11;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+//Mapper Reference
+        public CosmoRepoClass()
+            {
+                this._mapper = new CosmoRepoMapper();
+            }
+
+
+    public bool uNamePwordExists(string RegEmail, string RegPass)
+    {
+
+       string query = "SELECT * FROM CosmoCustomer WHERE Email LIKE 'Ali@gmail.net' AND MySecret LIKE 'ghghg';";
+       
+        using (SqlConnection conn = new SqlConnection(connectionstring))
+        { 
+
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.AddWithValue("@RE", RegEmail);
+            command.Parameters.AddWithValue("@RP", RegPass);
+            
+            conn.Open(); //open the connection to the DB
+            SqlDataReader results = command.ExecuteReader(); //do the query
+            conn.Close();
+
+            if (results.Read ())
+            {
+                return true;
+            }
+
+            else
+            {
+                conn.Close();
+                return false;
+            }
+
+        }
+
+        //    List<CosmoCustomer> ccl = new List<CosmoCustomer>();
+        //    while (results.Read())
+        //     {
+        //         ccl.Add(this._mapper.DboToCosmoCustomer(results));//send in the row of the reader to be mapped.
+        //     }
+        //    query1.Close();
+
+
+    }
+         
+    public List<CosmoCustomer> MembersList(string FirstName, string LastName, string Email, string MySecret)
+    {
+        //Query string
+        string myQuery1 = "Insert Into CosmoCustomer ( FirstName, LastName, Email, MySecret ) Values ( @F, @L, @E, @MyS )";
+
+        
+        using (SqlConnection query1 = new SqlConnection(connectionstring))
+        {
+            SqlCommand command = new SqlCommand(myQuery1, query1);
+            command.Parameters.AddWithValue("@F", FirstName);
+            command.Parameters.AddWithValue("@L", LastName);
+            command.Parameters.AddWithValue("@E", Email);
+            command.Parameters.AddWithValue("@MyS", MySecret);
+            command.Connection.Open(); //open the connection to the DB
+            SqlDataReader results = command.ExecuteReader(); //do the query
+
+            List<CosmoCustomer> ccl = new List<CosmoCustomer>();
+            while (results.Read())
+            {
+                ccl.Add(this._mapper.DboToCosmoCustomer(results));//send in the row of the reader to be mapped.
+            }
+            query1.Close();
+            return ccl;      
+        }
+
+    }
+    //More Sql Queries to populate and manipulate the data from the database.
+
+    public List<CosmoOrder> OrderList()
+    {
+        string myQuery2 = "SELECT * FROM CosmoOrder;";
+
+        using (SqlConnection query2 = new SqlConnection(connectionstring))
+        {
+            SqlCommand command = new SqlCommand(myQuery2, query2);
+            command.Connection.Open(); //open the connection to the DB
+            SqlDataReader results = command.ExecuteReader(); //do the query
+
+            List<CosmoOrder> MCO1 = new List<CosmoOrder>();
+            while (results.Read())
+            {
+                MCO1.Add(this._mapper.DboToCosmoOrder(results));//send in the row of the reader to be mapped.
+            }
+            query2.Close();
+            return MCO1;      
+        }
+
+    }
+    public List<OrderHistory> OrderHistoryList()
+    {
+        string myQuery3 = "SELECT * FROM CosmoOrderHistory;";
+
+        using (SqlConnection query3 = new SqlConnection(connectionstring))
+        {
+            SqlCommand command = new SqlCommand(myQuery3, query3);
+            command.Connection.Open(); //open the connection to the DB
+            SqlDataReader results = command.ExecuteReader(); //do the query
+
+            List<OrderHistory> MCOH1 = new List<OrderHistory>();
+            while (results.Read())
+            {
+                MCOH1.Add(this._mapper.DboToOrderHistory(results));//send in the row of the reader to be mapped.
+            }
+            query3.Close();
+            return MCOH1;      
+        }
+
+    }
+    public List<Inventory> InventoryList()
+    {
+        string myQuery4 = "SELECT * FROM CosmoInventory;";
+
+        using (SqlConnection query4 = new SqlConnection(connectionstring))
+        {
+            SqlCommand command = new SqlCommand(myQuery4, query4);
+            command.Connection.Open(); //open the connection to the DB
+            SqlDataReader results = command.ExecuteReader(); //do the query
+
+            List<Inventory> MSI1 = new List<Inventory>();
+            while (results.Read())
+            {
+                MSI1.Add(this._mapper.DboToInventory(results));//send in the row of the reader to be mapped.
+            }
+            query4.Close();
+            return MSI1;      
+        }
+
+    }
+    public List<StoreLocations> StoreLocationsList()
+    {
+        string myQuery5 = "SELECT * FROM CosmoStoreLocations;";
+
+        using (SqlConnection query5 = new SqlConnection(connectionstring))
+        {
+            SqlCommand command = new SqlCommand(myQuery5, query5);
+            command.Connection.Open(); //open the connection to the DB
+            SqlDataReader results = command.ExecuteReader(); //do the query
+
+            List<StoreLocations> MSL1 = new List<StoreLocations>();
+            while (results.Read())
+            {
+                MSL1.Add(this._mapper.DboToStoreLocations(results));//send in the row of the reader to be mapped.
+            }
+            query5.Close();
+            return MSL1;      
+        }
 
     }
 }
-    }
-}
+

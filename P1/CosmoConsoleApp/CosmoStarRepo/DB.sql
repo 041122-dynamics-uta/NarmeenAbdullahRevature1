@@ -1,37 +1,53 @@
 
 
-CREATE TABLE Cosmo_Costumers(
-	costumerId int PRIMARY KEY,
-	costumerName varchar(50),
-	costumerNumber varchar(50),
-	costumerAddress varchar(50),
-	costumerEmail varchar(50)
-)
+CREATE TABLE CosmoCustomer(
 
-CREATE TABLE Cosmo_Products(
-	productId int PRIMARY KEY,
-	productName varchar(50),
-	productPrice float,
-	productDescription varchar (800),
-	productCategory varchar(50)
-)
+    [CosmoCustomerId] INT IDENTITY(1, 1) NOT NULL,
+    [FirstName] NVARCHAR(40) NOT NULL,
+    [LastName] NVARCHAR(20) NOT NULL,
+    [MySecret] NVARCHAR(24) NOT NULL,
+    [Email] NVARCHAR(60) NOT NULL,
+    CONSTRAINT[PK_CosmoCustomer] PRIMARY KEY CLUSTERED([CosmoCustomerId])
+);
 
-CREATE TABLE Cosmo_Stores(
-	storeNumber int PRIMARY KEY,
-	storeName varchar(50),
-	storeAddress varchar(50)
-)
+CREATE TABLE CosmoOrder(
+    CosmoOrderID int IDENTITY(1, 1) NOT NULL,
+    [FirstName] NVARCHAR(40) NOT NULL,
+    [LastName] NVARCHAR(20) NOT NULL,
+    [ItemName] NVARCHAR(20) NOT NULL,
+    [ItemDescription] NVARCHAR(200) NOT NULL,
+    [Quantity] INT NOT NULL,
+    [ItemPrice] int NOT NULL,
+    [City] NVARCHAR(40) NOT NULL,
+    CONSTRAINT [PK_CosmoOrder] Primary Key CLUSTERED([CosmoOrderID])
+);
 
-CREATE TABLE Cosmo_Orders(
-	orderNumber int PRIMARY KEY,
-	costumerId int FOREIGN KEY REFERENCES Costumers(costumerId), --Foreign key reflecting costumerId or storeNumber
-	storeNumber int FOREIGN KEY REFERENCES Stores(storeNumber),
-	productId int FOREIGN KEY REFERENCES Products (productId)
-)
 
-CREATE TABLE Cosmo_LineItems(
-	storeNumber int FOREIGN KEY REFERENCES Stores(storeNumber), -- Foreign key
-	productId int FOREIGN KEY REFERENCES Products(productId), -- Foreign key
-	quantity int
-)
+CREATE TABLE CosmoStoreLocations(
+    [StoreLocationId] int IDENTITY(1, 1) NOT NULL,
+    [City] NVARCHAR(40) NOT NULL,
+	CONSTRAINT [PK_CosmoStoreLocations] Primary Key CLUSTERED([StoreLocationId])
+);
 
+
+CREATE TABLE CosmoOrderHistory(
+    OrderHistoryId int IDENTITY(1, 1) NOT NULL,
+    [FirstName] NVARCHAR(40) NOT NULL,
+    [LastName] NVARCHAR(20) NOT NULL,
+    [ItemName] NVARCHAR(20) NOT NULL,
+    [ItemDescription] NVARCHAR(200) NOT NULL,
+    [Quantity] int NOT NULL,
+    [ItemPrice] int NOT NULL,
+    [StoreLocationsId] NVARCHAR(200),
+    [OrderHistoryDateTime] DateTime NOT NULL,
+    CONSTRAINT[PK_CosmoOrderHistory] Primary Key CLUSTERED([OrderHistoryId])
+);
+
+CREATE TABLE CosmoInventory(
+    [StoreInventoryId] int IDENTITY(1, 1) NOT NULL,
+    [ItemName] NVARCHAR(20) NOT NULL,
+    [ItemPrice] INT NOT NULL,
+    [ItemDescription] NVARCHAR(200) NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT[PK_CosmoInventory] Primary Key CLUSTERED([StoreInventoryId])
+);
