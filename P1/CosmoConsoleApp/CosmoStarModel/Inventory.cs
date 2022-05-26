@@ -2,7 +2,6 @@ namespace CosmoStarModel
 {
     public class Inventory
     {
-        //get and set store inventory variables
         public int MyStoreInventoryId {get; set;}
         public string ItemName {get; set;} = "";
         public int ItemPrice {get; set;}

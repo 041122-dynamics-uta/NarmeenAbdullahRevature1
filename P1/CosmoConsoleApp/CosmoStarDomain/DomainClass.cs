@@ -1,17 +1,15 @@
 ﻿using CosmoStarModel;
 using CosmoStarRepo;
-//using System.Collections.Generic.list;
-
 
 
 namespace CosmoStarDomain;
 public class DomainClass
 {
- //Repo injector make more to inject into and recieve Order, Order History, store locations, and store Inventory tables
+ 
 public CosmoRepoClass _repo { get; set; }
-    public DomainClass(CosmoRepoClass MRC)
+    public DomainClass(CosmoRepoClass CRC)
     {
-        this._repo = MRC;
+        this._repo = CRC;
     }
 
     public List<CosmoCustomer> MembersList(string FirstName, string LastName, string Email, string MySecret)
@@ -24,25 +22,10 @@ public CosmoRepoClass _repo { get; set; }
     public List<CosmoCustomer> uNamePwordExists(string RegEmail, string RegPass)
     {
         return null;
-        //bool CosmoCustomerExists = _repo.uNamePwordExists(RegEmail, RegPass);
-        
-        // if (CosmoCustomerExists){
-        //     return null;    
-        // }
-
-        // else {
-
-        //    CosmoCustomer NewCosmoCustomer = MembersList (FirstName, LastName, Email, MySecret);
-        //    return NewCosmoCustomer;
-
-        // }
-
-
         
     }
 
   
-
     public List<StoreLocations> StoreLocationsList()
     {
         List<StoreLocations> SL = _repo.StoreLocationsList();

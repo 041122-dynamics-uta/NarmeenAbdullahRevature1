@@ -3,7 +3,6 @@ namespace CosmoStarModel
     public class CosmoOrder
     {
 
-     //model class to get and set the customer order variables
         public int CosmoOrderId {get; set;}
         public string FirstName {get; set;} = "";
         public string LastName {get; set;} = "";

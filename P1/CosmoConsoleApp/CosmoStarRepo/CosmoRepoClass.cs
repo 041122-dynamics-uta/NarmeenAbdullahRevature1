@@ -5,17 +5,16 @@ using System.Data.SqlClient;
 namespace CosmoStarRepo;
 
 public class CosmoRepoClass
-{//inject the mapper class
+{
         public CosmoRepoClass(CosmoRepoMapper _mapper) 
         {
             this._mapper = _mapper;
                
         }
 
-    
             public CosmoRepoMapper _mapper {get; set;}
 
-            //Ado.Net connection Command
+            //Azure connection string
     string connectionstring = "Server=tcp:narmeenserver.database.windows.net,1433;Initial Catalog=CosmoDB;Persist Security Info=False;User ID=narmeenServer;Password=happyApr@11;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
 //Mapper Reference
@@ -54,19 +53,12 @@ public class CosmoRepoClass
 
         }
 
-        //    List<CosmoCustomer> ccl = new List<CosmoCustomer>();
-        //    while (results.Read())
-        //     {
-        //         ccl.Add(this._mapper.DboToCosmoCustomer(results));//send in the row of the reader to be mapped.
-        //     }
-        //    query1.Close();
-
-
     }
-         
+
+
     public List<CosmoCustomer> MembersList(string FirstName, string LastName, string Email, string MySecret)
     {
-        //Query string
+        
         string myQuery1 = "Insert Into CosmoCustomer ( FirstName, LastName, Email, MySecret ) Values ( @F, @L, @E, @MyS )";
 
         
@@ -90,7 +82,9 @@ public class CosmoRepoClass
         }
 
     }
-    //More Sql Queries to populate and manipulate the data from the database.
+
+
+    //Queries to populate and manipulate the database.
 
     public List<CosmoOrder> OrderList()
     {
@@ -100,7 +94,7 @@ public class CosmoRepoClass
         {
             SqlCommand command = new SqlCommand(myQuery2, query2);
             command.Connection.Open(); //open the connection to the DB
-            SqlDataReader results = command.ExecuteReader(); //do the query
+            SqlDataReader results = command.ExecuteReader(); 
 
             List<CosmoOrder> MCO1 = new List<CosmoOrder>();
             while (results.Read())

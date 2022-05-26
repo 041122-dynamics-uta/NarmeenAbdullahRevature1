@@ -3,7 +3,6 @@ namespace CosmoStarModel
 {
     public class CosmoCustomer
     {
-        // Customer -- everything belo wis in Customer Table with the following columns
 
     public int CosmoCustomerId {get; set;} 
     public string FirstName {get; set;} = "";

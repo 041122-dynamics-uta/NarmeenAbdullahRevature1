@@ -2,7 +2,6 @@ namespace CosmoStarModel
 {
     public class OrderHistory
     {
-        // get and set order History Items in there respective spaces
         public int OrderHistoryId {get; set;} = 0;
         public string FirstName {get; set;} = "";
         public string LastName {get; set;} = "";
