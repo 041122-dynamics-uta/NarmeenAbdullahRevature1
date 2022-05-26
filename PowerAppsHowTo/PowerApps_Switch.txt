@@ -1,0 +1,16 @@
+How To Use PowerApps Switch Function
+
+Syntax: Switch( Formula, Match1, Result1 [, Match2, Result2, ... [, DefaultResult ] ] )
+
+
+Input Parameter :-
+Formula (mandatory): The value you want to check for equality.
+Match1 (mandatory): A value you want to compare the Formula parameter against.
+Result1 (mandatory): The outcome if the Match1 is matching. (You can have multiple pairs of Match and Result)
+DefaultResult (optional): The outcome if none of the given matches match.
+
+
+Return value:-
+Result1, if Match1 evaluates to true, Result2 if Match2 is true, …
+DefaultResult, if DefaultResult is defined and no Match is true.
+Blank, if there is no DefaultResult defined and no Match is true
